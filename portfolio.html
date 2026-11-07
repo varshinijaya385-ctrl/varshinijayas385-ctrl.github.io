@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Varshini | Computer Science Student &amp; Aspiring Teacher</title>
+  <meta name="description" content="Portfolio of Varshini, a final-year B.Sc. Computer Science student building Flask web projects and preparing for a teaching career.">
+  <meta name="author" content="Varshini">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#14213D">
+  <link rel="canonical" href="https://www.example.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314213D'/%3E%3Crect x='10' y='40' width='44' height='8' fill='%23FFE27A'/%3E%3Cpath d='M16 14l16 34 16-34' fill='none' stroke='%23F7F9FC' stroke-width='7' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Varshini — Portfolio">
+  <meta property="og:title" content="Varshini | Computer Science Student &amp; Aspiring Teacher">
+  <meta property="og:description" content="Portfolio of Varshini, a final-year B.Sc. Computer Science student building Flask web projects and preparing for a teaching career.">
+  <meta property="og:url" content="https://www.example.com/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Varshini | Computer Science Student &amp; Aspiring Teacher">
+  <meta name="twitter:description" content="Portfolio of Varshini, a final-year B.Sc. Computer Science student building Flask web projects and preparing for a teaching career.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Varshini",
+    "jobTitle": "Computer Science student",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Bishop Heber College" },
+    "url": "https://www.example.com/",
+    "knowsAbout": ["Python", "Flask", "Web development", "Computer science education"]
+  }
+  </script>
+  <style>
+/* ==========================================================================
+   Portfolio styles — "exercise book" theme
+   Palette (all text pairs checked for WCAG AA, most reach AAA):
+   paper  #F7F9FC   ink   #14213D   muted #4A5568
+   margin #B3261E   link  #0B4FA3   mark  #FFE27A
+   ========================================================================== */
+
+:root {
+  --paper: #f7f9fc;
+  --paper-2: #ffffff;
+  --ink: #14213d;
+  --muted: #4a5568;
+  --margin: #b3261e;
+  --link: #0b4fa3;
+  --mark: #ffe27a;
+  --rule: #c9d2e0;
+  --field-border: #5b6780;
+  --error: #a31621;
+  --success: #0b6b3a;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Noto Serif Tamil", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Tamil",
+    "Helvetica Neue", Arial, sans-serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --step-0: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  --step-3: clamp(2.25rem, 1.7rem + 2.6vw, 3.75rem);
+
+  --measure: 66ch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Utilities ---------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Focus (always visible, two-colour so it works on any bg) ---------- */
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--mark);
+  border-radius: 2px;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--step-3);
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--step-2);
+  margin-top: 3rem;
+}
+h3 {
+  font-size: var(--step-1);
+}
+p,
+ul,
+ol,
+dl {
+  margin: 0 0 1.25rem;
+}
+p,
+li,
+dd {
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  text-decoration-thickness: 0.16em;
+}
+
+/* The one memorable device: headline sits on a highlighter stroke */
+.marked {
+  background: linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 92%, transparent 92%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  display: inline;
+  padding: 0 0.15em;
+  margin-left: -0.15em;
+}
+
+.lead {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- Header / navigation ---------- */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-2);
+}
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.5rem;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+}
+.site-nav a:hover {
+  border-bottom-color: var(--rule);
+}
+.site-nav a[aria-current="page"] {
+  border-bottom-color: var(--margin);
+  font-weight: 700;
+}
+
+/* ---------- Layout ---------- */
+.wrap {
+  width: min(100% - 2rem, 70rem);
+  margin-inline: auto;
+}
+
+main {
+  flex: 1;
+  padding-block: 2.5rem 4rem;
+}
+
+/* Exercise-book margin line runs down the page content */
+.page {
+  position: relative;
+  display: grid;
+  gap: 2rem 3rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--margin);
+}
+@media (min-width: 62rem) {
+  .page {
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    padding-left: 2.5rem;
+  }
+  .page > :not(aside) {
+    grid-column: 1;
+  }
+  .page > aside {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+}
+
+.page > section:first-child h2:first-child,
+.page > :first-child h2:first-child {
+  margin-top: 0;
+}
+
+/* ---------- Marginalia (aside) ---------- */
+.note {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--mark);
+  padding: 1.25rem;
+  align-self: start;
+}
+.note h2 {
+  font-size: var(--step-1);
+  margin: 0 0 0.75rem;
+}
+.note ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+.note li {
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Buttons ---------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1.5rem 0;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.button:hover {
+  background: #0b1429;
+}
+.button--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.button--ghost:hover {
+  background: var(--mark);
+}
+
+/* ---------- Project / content cards (articles) ---------- */
+.entry {
+  border-top: 1px solid var(--rule);
+  padding-block: 1.75rem;
+}
+.entry:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+.entry h3 {
+  margin-bottom: 0.25rem;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.tags li {
+  font-size: var(--step--1);
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--field-border);
+  border-radius: 999px;
+  background: var(--paper-2);
+}
+
+/* ---------- Definition list (skills) ---------- */
+.facts {
+  display: grid;
+  gap: 0.25rem 1.5rem;
+}
+.facts dt {
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+.facts dd {
+  margin: 0;
+}
+@media (min-width: 40rem) {
+  .facts {
+    grid-template-columns: 11rem 1fr;
+  }
+  .facts dt,
+  .facts dd {
+    margin-top: 0;
+    padding-block: 0.6rem;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+/* ---------- Contact form ---------- */
+.form {
+  max-width: 38rem;
+}
+.field {
+  margin-bottom: 1.5rem;
+}
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.field .hint {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--muted);
+  margin: 0 0 0.4rem;
+}
+.req {
+  color: var(--error);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--field-border);
+  border-radius: 0.25rem;
+}
+.field textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+.field [aria-invalid="true"] {
+  border-color: var(--error);
+  background: #fff7f7;
+}
+.field-error {
+  color: var(--error);
+  font-weight: 600;
+  margin: 0.4rem 0 0;
+  min-height: 0;
+}
+.field-error:empty {
+  display: none;
+}
+
+.error-summary {
+  border: 3px solid var(--error);
+  background: #fff;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 38rem;
+}
+.error-summary h2 {
+  font-size: var(--step-1);
+  margin: 0 0 0.5rem;
+  color: var(--error);
+}
+.error-summary ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.error-summary a {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.form-status {
+  margin-top: 1.25rem;
+  font-weight: 600;
+  max-width: 38rem;
+}
+.form-status.is-success {
+  color: var(--success);
+}
+.form-status.is-error {
+  color: var(--error);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding-block: 1.5rem;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+.site-footer p {
+  margin: 0;
+}
+.site-footer a {
+  color: var(--link);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* ---------- Motion & contrast preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .marked {
+    background: none;
+    text-decoration: underline;
+  }
+  .page {
+    border-left-color: CanvasText;
+  }
+}
+@media print {
+  .site-nav,
+  .skip-link,
+  .actions {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#home">Varshini</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul role="list">
+          <li><a href="#home" aria-current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div data-page="home" data-title="Varshini | Computer Science Student & Aspiring Teacher">
+    <div class="wrap">
+      <div class="page">
+        <section aria-labelledby="hero-heading">
+          <h1 id="hero-heading"><span class="marked">Varshini</span></h1>
+          <p class="lead">Final-year B.Sc. Computer Science student who builds web tools with Python and Flask, and is working toward a career teaching computer science.</p>
+          <p>I like turning an idea into a working project, then explaining how it works. This site collects what I have built, what I am studying, and how to reach me.</p>
+          <div class="actions">
+            <a class="button" href="#projects">View my projects</a>
+            <a class="button button--ghost" href="#contact">Send me a message</a>
+          </div>
+        </section>
+
+        <section aria-labelledby="featured-heading">
+          <h2 id="featured-heading">Featured project</h2>
+          <article class="entry" aria-labelledby="featured-title">
+            <h3 id="featured-title">YouthVerse AI</h3>
+            <ul class="tags" role="list" aria-label="Technologies used">
+              <li>Python</li><li>Flask</li><li>SQLite</li><li>HTML, CSS &amp; JavaScript</li>
+            </ul>
+            <p>A career guidance platform for students that uses AI to suggest paths based on their interests and skills.</p>
+            <p><a href="#projects">Read the full project write-up</a></p>
+          </article>
+        </section>
+
+        <aside class="note" aria-labelledby="now-heading">
+          <h2 id="now-heading">What I am working on</h2>
+          <ul>
+            <li>Building YouthVerse AI</li>
+            <li>Preparing for the TN SET exam in Computer Science</li>
+            <li>Writing a 100-episode story in Tamil</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+    </div>
+    <div data-page="about" data-title="About Varshini | B.Sc. Computer Science Student">
+    <div class="wrap">
+      <div class="page">
+        <section aria-labelledby="about-heading">
+          <h1 id="about-heading"><span class="marked">About me</span></h1>
+          <p class="lead">I am studying computer science so that I can teach it.</p>
+          <p>I am in the final year of my B.Sc. in Computer Science at Bishop Heber College. Alongside my coursework I build small web applications, which helps me understand each topic well enough to explain it to someone else.</p>
+        </section>
+
+        <section aria-labelledby="goal-heading">
+          <h2 id="goal-heading">Where I am heading</h2>
+          <p>My plan is to complete an M.Sc. in Computer Science, qualify in the Tamil Nadu State Eligibility Test (TN SET), and become an Assistant Professor.</p>
+        </section>
+
+        <section aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
+          <dl class="facts">
+            <dt>Languages</dt>
+            <dd>Python, JavaScript, HTML, CSS, SQL</dd>
+            <dt>Frameworks</dt>
+            <dd>Flask</dd>
+            <dt>Databases</dt>
+            <dd>SQLite</dd>
+            <dt>Strengths</dt>
+            <dd>Building projects from scratch, structuring code clearly, and writing study material</dd>
+          </dl>
+        </section>
+
+        <aside class="note" aria-labelledby="edu-heading">
+          <h2 id="edu-heading">Education</h2>
+          <ul>
+            <li><strong>B.Sc. Computer Science</strong><br>Bishop Heber College (final year)</li>
+            <li><strong>Next:</strong> M.Sc. Computer Science</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+    </div>
+    <div data-page="projects" data-title="Projects | Varshini">
+    <div class="wrap">
+      <div class="page">
+        <section aria-labelledby="projects-heading">
+          <h1 id="projects-heading"><span class="marked">Projects</span></h1>
+          <p class="lead">Things I have built and written.</p>
+        </section>
+
+        <section aria-labelledby="web-heading">
+          <h2 id="web-heading">Web development</h2>
+          <article class="entry" id="youthverse" aria-labelledby="youthverse-title">
+            <h3 id="youthverse-title">YouthVerse AI</h3>
+            <ul class="tags" role="list" aria-label="Technologies used">
+              <li>Python</li><li>Flask</li><li>SQLite</li><li>HTML, CSS &amp; JavaScript</li>
+            </ul>
+            <p>A web platform that gives students AI-powered career guidance. A student describes their interests and skills, and the app suggests directions to explore.</p>
+            <p>I built the Flask back end, the SQLite database, and the front-end pages.</p>
+          </article>
+          <!-- Add the next web project here as another <article class="entry"> -->
+        </section>
+
+        <section aria-labelledby="writing-heading">
+          <h2 id="writing-heading">Writing</h2>
+          <article class="entry" aria-labelledby="story-title">
+            <h3 id="story-title"><span lang="ta">நிழல் வளையம்</span></h3>
+            <ul class="tags" role="list" aria-label="Details">
+              <li>Tamil</li><li>100 episodes</li><li>Serial fiction</li>
+            </ul>
+            <p>A 100-episode story in Tamil, written for Pratilipi's Season 3 contest.</p>
+          </article>
+        </section>
+
+        <aside class="note" aria-labelledby="next-heading">
+          <h2 id="next-heading">Want to collaborate?</h2>
+          <p>I am open to project ideas and study-group partners.</p>
+          <p><a href="#contact">Contact me</a></p>
+        </aside>
+      </div>
+    </div>
+    </div>
+    <div data-page="contact" data-title="Contact Varshini | Send a Message">
+    <div class="wrap">
+      <div class="page">
+        <section aria-labelledby="contact-heading">
+          <h1 id="contact-heading"><span class="marked">Contact</span></h1>
+          <p class="lead">Send me a message and I will reply by email.</p>
+
+          <div id="error-summary" class="error-summary" tabindex="-1" aria-labelledby="error-summary-title" role="group" hidden>
+            <h2 id="error-summary-title">Please fix these problems</h2>
+            <ul id="error-list" role="list"></ul>
+          </div>
+
+          <form id="contact-form" class="form" action="#" method="post" novalidate data-endpoint="">
+            <p class="hint muted">Fields marked <span class="req" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+
+            <div class="field">
+              <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required aria-required="true" aria-describedby="name-error">
+              <p class="field-error" id="name-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+              <span class="hint" id="email-hint">I will only use this to reply to you.</span>
+              <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required aria-required="true" aria-describedby="email-hint email-error">
+              <p class="field-error" id="email-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="topic">What is this about? <span class="req" aria-hidden="true">*</span></label>
+              <select id="topic" name="topic" required aria-required="true" aria-describedby="topic-error">
+                <option value="">Choose a topic</option>
+                <option value="project">A project or collaboration</option>
+                <option value="study">Study help or teaching</option>
+                <option value="other">Something else</option>
+              </select>
+              <p class="field-error" id="topic-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+              <span class="hint" id="message-hint">At least 10 characters.</span>
+              <textarea id="message" name="message" rows="6" required aria-required="true" minlength="10" aria-describedby="message-hint message-error"></textarea>
+              <p class="field-error" id="message-error"></p>
+            </div>
+
+            <button class="button" type="submit">Send message</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <aside class="note" aria-labelledby="reply-heading">
+          <h2 id="reply-heading">Good to know</h2>
+          <ul>
+            <li>You can reach every field with the Tab key.</li>
+            <li>Errors are listed at the top and link to the field.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><small>&copy; 2026 Varshini. Built with semantic HTML and tested with a keyboard.</small></p>
+      <a href="#main">Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+/* Accessible contact form validation.
+   - Errors appear inline AND in a summary that receives focus.
+   - Each summary item links to its field.
+   - Fields get aria-invalid and are described by their error text.
+   - Set data-endpoint on the <form> (e.g. a Formspree URL) to send real messages. */
+(function () {
+  "use strict";
+
+  var form = document.getElementById("contact-form");
+  if (!form) return;
+
+  var summary = document.getElementById("error-summary");
+  var list = document.getElementById("error-list");
+  var status = document.getElementById("form-status");
+
+  var rules = {
+    name: function (v) {
+      return v.trim() ? "" : "Enter your name.";
+    },
+    email: function (v) {
+      if (!v.trim()) return "Enter your email address.";
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())
+        ? ""
+        : "Enter an email address in the format name@example.com.";
+    },
+    topic: function (v) {
+      return v ? "" : "Choose a topic.";
+    },
+    message: function (v) {
+      if (!v.trim()) return "Enter a message.";
+      return v.trim().length >= 10 ? "" : "Write at least 10 characters.";
+    }
+  };
+
+  function setError(field, message) {
+    var err = document.getElementById(field.id + "-error");
+    err.textContent = message;
+    if (message) {
+      field.setAttribute("aria-invalid", "true");
+    } else {
+      field.removeAttribute("aria-invalid");
+    }
+  }
+
+  function validateField(field) {
+    var message = rules[field.name](field.value);
+    setError(field, message);
+    return message;
+  }
+
+  function showSummary(problems) {
+    list.innerHTML = "";
+    problems.forEach(function (p) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + p.field.id;
+      a.textContent = p.message;
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        p.field.focus();
+      });
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    summary.hidden = false;
+    summary.focus();
+  }
+
+  function hideSummary() {
+    summary.hidden = true;
+    list.innerHTML = "";
+  }
+
+  function setStatus(text, type) {
+    status.textContent = text;
+    status.className = "form-status" + (type ? " is-" + type : "");
+  }
+
+  // Clear an error as soon as the visitor fixes it
+  Object.keys(rules).forEach(function (name) {
+    var field = form.elements[name];
+    field.addEventListener("input", function () {
+      if (field.getAttribute("aria-invalid") === "true") validateField(field);
+    });
+    field.addEventListener("change", function () {
+      if (field.getAttribute("aria-invalid") === "true") validateField(field);
+    });
+  });
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    setStatus("");
+
+    var problems = [];
+    Object.keys(rules).forEach(function (name) {
+      var field = form.elements[name];
+      var message = validateField(field);
+      if (message) problems.push({ field: field, message: message });
+    });
+
+    if (problems.length) {
+      showSummary(problems);
+      return;
+    }
+    hideSummary();
+
+    var endpoint = form.getAttribute("data-endpoint");
+    if (!endpoint) {
+      setStatus("Your message is valid. This form is not connected to an email service yet.", "success");
+      return;
+    }
+
+    var button = form.querySelector("button[type='submit']");
+    button.disabled = true;
+    setStatus("Sending your message…");
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        topic: form.elements.topic.value,
+        message: form.elements.message.value
+      })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("Request failed");
+        form.reset();
+        setStatus("Thank you. Your message has been sent.", "success");
+      })
+      .catch(function () {
+        setStatus("Your message could not be sent. Check your connection and try again.", "error");
+      })
+      .then(function () {
+        button.disabled = false;
+      });
+  });
+})();
+
+
+/* Single-file router: each "page" is a section toggled by the URL hash.
+   Without JavaScript every section is simply shown one after another. */
+(function () {
+  "use strict";
+  var pages = Array.prototype.slice.call(document.querySelectorAll("[data-page]"));
+  var links = Array.prototype.slice.call(document.querySelectorAll(".site-nav a, .brand"));
+  var main = document.getElementById("main");
+  var first = true;
+
+  function show() {
+    var key = location.hash.replace("#", "");
+    var target = pages.filter(function (p) { return p.getAttribute("data-page") === key; })[0];
+    if (!target) {
+      if (!first) return;               // ignore #main, #youthverse etc.
+      target = pages[0];
+      key = "home";
+    }
+    pages.forEach(function (p) { p.hidden = p !== target; });
+    links.forEach(function (a) {
+      if (a.getAttribute("href") === "#" + key && a.closest(".site-nav")) {
+        a.setAttribute("aria-current", "page");
+      } else {
+        a.removeAttribute("aria-current");
+      }
+    });
+    document.title = target.getAttribute("data-title");
+    if (!first) {
+      window.scrollTo(0, 0);
+      var h1 = target.querySelector("h1");
+      h1.setAttribute("tabindex", "-1");
+      h1.focus();                       // announce the new page to screen readers
+    }
+    first = false;
+  }
+  window.addEventListener("hashchange", show);
+  show();
+})();
+
+  </script>
+</body>
+</html>
